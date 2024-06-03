@@ -1,6 +1,25 @@
+FROM alpine:3.19 as builder
+
+WORKDIR /temp/zwooc
+
+ENV \
+    # Zwooc version
+    ZWOOC_VERSION=1.0.1
+
+# Download zwooc from GitHub releases
+RUN apk add --no-cache curl \
+    && curl -L -o zwooc_linux_amd64.tar.gz "https://github.com/zwoo-hq/zwooc/releases/download/v$ZWOOC_VERSION/zwooc_linux_amd64.tar.gz" \
+    && apk del curl \
+    && echo "8283dc552a547b301dd55bd70f6f2e1c41cef31024e60bcce9a14d45dca0ac08  zwooc_linux_amd64.tar.gz" | sha256sum -c - \
+    && tar -xzf zwooc_linux_amd64.tar.gz -C ./ \
+    && rm zwooc_linux_amd64.tar.gz \
+    && chmod +x zwooc \
+    && ./zwooc -h
+
 FROM mcr.microsoft.com/dotnet/sdk:8.0.203-alpine3.19-amd64
 
-# Env
+COPY --from=builder /temp/zwooc/zwooc /usr/local/bin/zwooc
+
 ENV \
     # Node.js version
     NODE_VERSION=20.14.0 \

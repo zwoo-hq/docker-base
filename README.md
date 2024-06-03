@@ -6,7 +6,7 @@ It is composed of:
 
 - `mcr.microsoft.com/dotnet/sdk:8.0-alpine3.19` (using `alpine:3.19` as base)
 - `node:20-alpine3.19`
-- TODO: `zwooc`
+- `zwooc` v1.0.1
 
 TODO: `RUN dotnet workload install wasm-tools` add 1.12GB to the docker file
 
