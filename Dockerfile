@@ -130,6 +130,3 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
     # smoke test
     && yarn --version \
     && rm -rf /tmp/*
-
-# install dotnet workloads
-RUN dotnet workload install wasm-tools

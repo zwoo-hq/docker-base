@@ -8,8 +8,6 @@ It is composed of:
 - `node:20-alpine3.19`
 - `zwooc` v1.0.1
 
-TODO: `RUN dotnet workload install wasm-tools` add 1.12GB to the docker file
-
 It should only be used for the build stage. The production image depend on the technology used. Common images are:
 
 - `nginx:stable-alpine` (frontend/docs)
