@@ -12,17 +12,17 @@ ENV \
 RUN apt-get update && apt-get install -y curl \
     && rm -rf /var/lib/apt/lists/* \
     && curl -L -o zwooc_linux_amd64.tar.gz "https://github.com/zwoo-hq/zwooc/releases/download/v$ZWOOC_VERSION/zwooc_linux_amd64.tar.gz" \
-    && echo "8283dc552a547b301dd55bd70f6f2e1c41cef31024e60bcce9a14d45dca0ac08  zwooc_linux_amd64.tar.gz" | sha256sum -c - \
+    && echo "eab54169930d6b2c06391c9fb68c19c46743a745685ed12cbfb18dca686eb6b4  zwooc_linux_amd64.tar.gz" | sha256sum -c - \
     && tar -xzf zwooc_linux_amd64.tar.gz -C ./ \
     && rm zwooc_linux_amd64.tar.gz \
     && chmod +x zwooc \
     && ./zwooc -h
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0.203-bookworm-slim-amd64
+FROM mcr.microsoft.com/dotnet/sdk:8.0.401-bookworm-slim-amd64
 
 ENV \
     # Node.js version
-    NODE_VERSION=20.15.1 \
+    NODE_VERSION=20.16.0 \
     # Yarn version
     YARN_VERSION=1.22.22
 
