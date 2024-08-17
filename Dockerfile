@@ -1,12 +1,12 @@
 FROM debian:bookworm-slim AS builder
 
-LABEL org.opencontainers.image.description the base image for building zwoo related images 
+LABEL org.opencontainers.image.description="the base image for building zwoo related images" 
 
 WORKDIR /temp/zwooc
 
 ENV \
     # Zwooc version
-    ZWOOC_VERSION=1.0.1
+    ZWOOC_VERSION=1.1.0
 
 # Download zwooc from GitHub releases
 RUN apt-get update && apt-get install -y curl \
@@ -127,6 +127,7 @@ RUN set -ex \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     curl \
+    ca-certificates \
     git \
     libatomic1 \
     python3 \
