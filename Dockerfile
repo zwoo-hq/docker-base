@@ -10,7 +10,7 @@ ENV ZWOOC_VERSION=1.1.1
 RUN apt-get update && apt-get install -y curl \
     && rm -rf /var/lib/apt/lists/* \
     && curl -L -o zwooc_linux_amd64.tar.gz "https://github.com/zwoo-hq/zwooc/releases/download/v$ZWOOC_VERSION/zwooc_linux_amd64.tar.gz" \
-    && echo "eab54169930d6b2c06391c9fb68c19c46743a745685ed12cbfb18dca686eb6b4  zwooc_linux_amd64.tar.gz" | sha256sum -c - \
+    && echo "c9e3b8e91a0ac75ec351bec935e9e49978d3a94405f30402ef6c70379ed796d1  zwooc_linux_amd64.tar.gz" | sha256sum -c - \
     && tar -xzf zwooc_linux_amd64.tar.gz -C ./ \
     && rm zwooc_linux_amd64.tar.gz \
     && chmod +x zwooc \
