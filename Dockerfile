@@ -20,7 +20,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0.100-bookworm-slim-amd64
 
 # Node 22, see: https://github.com/nodejs/docker-node/blob/main/22/bookworm-slim/Dockerfile
 
-ENV NODE_VERSION=21.11.0
+ENV NODE_VERSION 22.11.0
 
 RUN groupadd --gid 1000 node \
     && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
